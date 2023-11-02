@@ -1,0 +1,11 @@
+id: sonic_theme_syria
+name: Syria
+author:
+  name: raison
+  website: https://github.com/raisons
+description: hugo-theme-syria for Sonic
+logo: https://avatars.githubusercontent.com/u/20410276?v=4
+website: https://github.com/raisons/sonic-theme-syria
+repo: https://github.com/raisons/sonic-theme-syria
+version: 1.0.1
+require: 1.0.0

@@ -1,0 +1,38 @@
+{{- define "sonic_theme_syria/tags" -}}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>标签列表 - {{ .blog_title }}</title>
+    {{ template "sonic_theme_syria/module/head" .}}
+</head>
+
+<style>
+    .tags {
+        margin-top: 15px;
+    }
+</style>
+
+<body>
+{{ template "sonic_theme_syria/module/header" .}}
+<main class="wrapper">
+    <content>
+        <header class="header">
+            <h1 class="header-title">标签列表</h1>
+            <div class="post-meta">共有{{getTagCount}}个标签</div>
+        </header>
+        <div class="tags">
+            {{ $tags:=getAllTag }}
+            {{ range $tag:=$tags }}
+            <span>
+                <a href="{{ $tag.FullPath }}">#{{ $tag.Name }}（{{ $tag.PostCount }}）</a>&nbsp;
+            </span>
+            {{end}}
+        </div>
+    </content>
+</main>
+
+{{ template "sonic_theme_syria/module/footer" .}}
+</body>
+
+</html>
+{{- end -}}

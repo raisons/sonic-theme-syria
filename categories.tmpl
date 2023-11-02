@@ -1,0 +1,38 @@
+{{- define "sonic_theme_syria/categories" -}}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>分类列表 - {{ .blog_title }}</title>
+    {{ template "sonic_theme_syria/module/head" .}}
+</head>
+
+<style>
+    .categories {
+        margin-top: 15px;
+    }
+</style>
+
+<body>
+{{ template "sonic_theme_syria/module/header" .}}
+<main class="wrapper">
+    <content>
+        <header class="header">
+            <h1 class="header-title">分类列表</h1>
+            <div class="post-meta">共有{{getCategoryCount}}个分类</div>
+        </header>
+        <div class="categories">
+            {{$categories:=listCategory}}
+            {{range $category:=$categories}}
+            <span>
+                <a href="{{ $category.FullPath }}">{{ $category.Name }}（{{ $category.PostCount }}）</a>
+            </span>
+            {{end}}
+        </div>
+    </content>
+</main>
+
+{{ template "sonic_theme_syria/module/footer" .}}
+</body>
+
+</html>
+{{- end -}}

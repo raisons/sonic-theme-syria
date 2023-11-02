@@ -1,0 +1,14 @@
+{{- define "sonic_theme_syria/module/pagination" -}}
+
+{{if (gt .posts.Pages 1)}}
+{{$pagination:=(indexPagination .posts.PageNum .posts.Pages 3)}}
+<div class="page">
+    {{ if $pagination.HasPrev }}
+    <a href="{{ $pagination.PrevPageFullPath }}" class="prev">上一页</a>
+    {{ end }}
+    {{ if $pagination.HasNext }}
+    <a href="{{ $pagination.NextPageFullPath }}" class="next">下一页</a>
+    {{ end }}
+</div>
+{{end}}
+{{end}}

@@ -1,0 +1,28 @@
+{{- define "sonic_theme_syria/sheet" -}}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>{{.sheet.Title}} - {{ .blog_title }}</title>
+    {{ template "sonic_theme_syria/module/head" .}}
+</head>
+
+<body>
+{{ template "sonic_theme_syria/module/header" .}}
+<main class="wrapper">
+    <content>
+        <header class="header">
+            <h1 class="header-title">{{ .sheet.Title }}</h1>
+        </header>
+
+        <article class="post-content markdown-body">
+            {{noescape .sheet.Content}}
+        </article>
+
+    </content>
+</main>
+
+{{ template "sonic_theme_syria/module/footer" .}}
+</body>
+
+</html>
+{{- end -}}

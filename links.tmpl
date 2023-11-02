@@ -1,0 +1,28 @@
+{{- define "sonic_theme_syria/links" -}}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>友情链接 - {{ .blog_title }}</title>
+    {{ template "sonic_theme_syria/module/head" .}}
+</head>
+
+<body>
+{{ template "sonic_theme_syria/module/header" .}}
+<main class="wrapper">
+    <content>
+        <header class="header">
+            <h1 class="header-title">友情链接</h1>
+        </header>
+
+        {{range $link:=listLinks }}
+        <a href="{{ $link.URL }}" target="_blank" style="text-decoration: none;">{{$link.Name}}</a>
+        {{end}}
+
+    </content>
+</main>
+
+{{ template "sonic_theme_syria/module/footer" .}}
+</body>
+
+</html>
+{{- end -}}

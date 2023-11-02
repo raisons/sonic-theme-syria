@@ -1,0 +1,36 @@
+{{- define "sonic_theme_syria/archives" -}}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>归档 - {{ .blog_title }}</title>
+    {{ template "sonic_theme_syria/module/head" .}}
+</head>
+
+<body>
+{{ template "sonic_theme_syria/module/header" .}}
+<main class="wrapper">
+    <content>
+        <header class="header">
+            <h1 class="header-title">归档</h1>
+        </header>
+        {{range $archive:=.archives}}
+        <h2>{{$archive.Year}}</h2>
+        <ul class="blog-posts">
+            {{range $post:=$archive.Posts}}
+            <li>
+                <span>
+                    <time datetime="{{ unix_milli_time_format " 2006-01-02 15:04:05 MST" $post.CreateTime}}">{{unix_milli_time_format "2006-01-02" $post.CreateTime}}</time>
+                </span>
+                <a href="{{ $post.FullPath}}">{{ $post.Title }}</a>
+            </li>
+            {{ end }}
+        </ul>
+        {{ end }}
+    </content>
+</main>
+
+{{ template "sonic_theme_syria/module/footer" .}}
+</body>
+
+</html>
+{{- end -}}

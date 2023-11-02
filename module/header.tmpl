@@ -1,0 +1,12 @@
+{{- define "sonic_theme_syria/module/header" -}}
+  <header>
+    <a href="/" class="title">
+      <h2>{{.settings.blog_domain}} {{.blog_title}}</h2>
+    </a>
+    <nav>
+      {{- range $menu:=listMenu -}}
+      <a href="{{$menu.URL}}" target="{{$menu.Target}}">{{- $menu.Name -}}</a>
+      {{- end -}}
+    </nav>
+  </header>
+{{end}}

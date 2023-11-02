@@ -1,0 +1,40 @@
+{{- define "sonic_theme_syria/post" -}}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>{{.post.Title}} - {{ .blog_title }}</title>
+    {{ template "sonic_theme_syria/module/head" .}}
+</head>
+
+<body>
+{{ template "sonic_theme_syria/module/header" .}}
+<main class="wrapper">
+    <content>
+        <!-- Post Header -->
+        <header class="header">
+            <h1 class="header-title">{{ .post.Title }}</h1>
+            <div class="post-meta">发布于 <i>
+                <time datetime="{{ unix_milli_time_format " 2006-01-02 15:04:05 MST" .post.CreateTime }}">{{unix_milli_time_format "2006-01-02 15:04:05" .post.CreateTime }}</time>
+            </i> / 本文总阅读量 <span>{{.post.Visits}}</span> 次
+            </div>
+        </header>
+        <!-- Post Content -->
+        <article class="post-content markdown-body">
+            {{noescape .post.Content}}
+        </article>
+        <!-- Post Tags -->
+        {{ if gt (len .post.Tags) 0 }}
+        <p>
+            {{ range $tag:=.post.Tags }}
+            <a href="{{$tag.FullPath}}" title="{{$tag.Name}}">#{{$tag.Name}}</a>
+            {{ end }}
+        </p>
+        {{end}}
+    </content>
+</main>
+
+{{ template "sonic_theme_syria/module/footer" .}}
+</body>
+
+</html>
+{{- end -}}

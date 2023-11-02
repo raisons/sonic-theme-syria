@@ -1,0 +1,35 @@
+{{- define "sonic_theme_syria/index" -}}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>{{ .blog_title }}</title>
+    {{ template "sonic_theme_syria/module/head" .}}
+</head>
+
+<body>
+{{ template "sonic_theme_syria/module/header" .}}
+<main class="wrapper">
+    <content>
+        <h3 class="posts-item-note" aria-label="Recent Posts">Recent Posts</h3>
+        <small>
+            <div>
+                {{ range $tag:=getAllTag }}
+                <a href="{{ $tag.FullPath }}">#{{ $tag.Name }}</a>
+                {{ end }}
+            </div>
+        </small>
+
+        <ul class="blog-posts">
+            {{ template "sonic_theme_syria/module/post-entry" .}}
+        </ul>
+
+        {{ template "sonic_theme_syria/module/pagination" .}}
+
+    </content>
+</main>
+
+{{ template "sonic_theme_syria/module/footer" .}}
+</body>
+
+</html>
+{{- end -}}

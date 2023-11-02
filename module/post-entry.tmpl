@@ -1,0 +1,12 @@
+{{- define "sonic_theme_syria/module/post-entry" -}}
+
+{{range $post:=.posts.Content}}
+<li>
+    <span>
+        <time datetime="{{ unix_milli_time_format " 2006-01-02 15:04:05 MST" $post.CreateTime}}">{{unix_milli_time_format "2006-01-02" $post.CreateTime}}</time>
+    </span>
+    <a href="{{ $post.FullPath}}">{{ $post.Title }}</a>
+</li>
+{{end}}
+
+{{end}}

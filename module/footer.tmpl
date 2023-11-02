@@ -1,0 +1,56 @@
+{{- define "sonic_theme_syria/module/footer" -}}
+
+<footer class="footer">
+    <span class="footer_item"> </span>
+
+    <small class="footer_copyright">
+        <div>© 2020 - <span id="year"></span> Powered by {{ .user.Nickname }}</div>
+        <div>
+            {{$statistics:=getStatisticsData}}
+            网站已经运行 <span id="days">0</span> ·
+            本站总访问量 <span id="busuanzi_value_site_pv">{{$statistics.VisitCount}}</span> 次
+        </div>
+        <div class="gotop">▲</div>
+    </small>
+</footer>
+
+<script>
+    var s0 = '{{ $statistics.Birthday }}';
+    s1 = new Date(Number(s0));
+    s2 = new Date();
+    var days = s2.getTime() - s1.getTime();
+
+    var date = new Date;
+    var year = date.getFullYear();
+    document.getElementById('year').innerHTML = year;
+
+    var BootDate = new Date(Number(s0));
+
+    function ShowRunTime(id) {
+        var NowDate = new Date();
+        var RunDateM = parseInt(NowDate - BootDate);
+        var RunDays = Math.floor(RunDateM / (24 * 3600 * 1000));
+        var RunHours = Math.floor(RunDateM % (24 * 3600 * 1000) / (3600 * 1000));
+        var RunMinutes = Math.floor(RunDateM % (24 * 3600 * 1000) % (3600 * 1000) / (60 * 1000));
+        var RunSeconds = Math.round(RunDateM % (24 * 3600 * 1000) % (3600 * 1000) % (60 * 1000) / 1000);
+        var days = RunDays + "天" + RunHours + "时" + RunMinutes + "分" + RunSeconds + "秒";
+        document.getElementById(id).innerHTML = days;
+    }
+
+    ShowRunTime('days');
+    setInterval("ShowRunTime('days')", 1000);
+</script>
+
+
+{{ template "global.footer" . }}
+<script src="{{.theme_base}}/assets/js/jquery3.6.0.min.js?version={{ .theme.Version}}"></script>
+<script src="{{.theme_base}}/assets/js/simplebox.min.js?version={{ .theme.Version}}"></script>
+<script src="{{.theme_base}}/assets/js/search.js?version={{ .theme.Version}}"></script>
+<script src="{{.theme_base}}/assets/js/main.js?version={{ .theme.Version}}"></script>
+{{if .settings.highlight }}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+{{end}}
+
+
+{{end}}
