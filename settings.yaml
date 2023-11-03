@@ -1,6 +1,16 @@
 basic:
   label: 基础设置
   items:
+    show_blog_domain:
+      name: show_blog_domain
+      label: 是否显示域名
+      type: radio
+      default: false
+      options:
+        - value: true
+          label: 显示
+        - value: false
+          label: 不显示
     blog_domain:
       name: blog_domain
       label: 博客域名

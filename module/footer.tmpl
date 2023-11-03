@@ -2,7 +2,6 @@
 
 <footer class="footer">
     <span class="footer_item"> </span>
-
     <small class="footer_copyright">
         <div>Copyright © 2020 - <span id="year"></span>
             Powered By <a href="https://github.com/go-sonic/sonic">Sonic</a>
@@ -30,13 +29,10 @@
     s1 = new Date(Number(s0));
     s2 = new Date();
     var days = s2.getTime() - s1.getTime();
-
     var date = new Date;
     var year = date.getFullYear();
     document.getElementById('year').innerHTML = year;
-
     var BootDate = new Date(Number(s0));
-
     function ShowRunTime(id) {
         var NowDate = new Date();
         var RunDateM = parseInt(NowDate - BootDate);
@@ -47,7 +43,6 @@
         var days = RunDays + "天" + RunHours + "时" + RunMinutes + "分" + RunSeconds + "秒";
         document.getElementById(id).innerHTML = days;
     }
-
     ShowRunTime('days');
     setInterval("ShowRunTime('days')", 1000);
 </script>
