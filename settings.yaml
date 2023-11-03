@@ -1,5 +1,5 @@
-style:
-  label: 样式设置
+basic:
+  label: 基础设置
   items:
     blog_domain:
       name: blog_domain
@@ -11,6 +11,10 @@ style:
       label: 日志别名
       type: text
       default: "日志"
+
+highlight:
+  label: 代码高亮
+  items:
     highlight:
       name: highlight
       label: 代码高亮
@@ -39,3 +43,49 @@ style:
           label: 'idea'
         - value: 'xcode'
           label: 'xcode'
+
+beian:
+  label: 备案信息
+  items:
+    show_icp:
+      name: show_icp
+      label: 显示ICP备案信息
+      type: radio
+      data-type: bool
+      default: false
+      options:
+        - value: true
+          label: 显示
+        - value: false
+          label: 不显示
+    icp_info:
+      name: icp_info
+      label: ICP备案信息
+      type: text
+      default: ""
+    icp_url:
+      name: icp_url
+      label: ICP跳转网址
+      type: text
+      default: ""
+    show_police:
+      name: show_police
+      label: 显示公安备案信息
+      type: radio
+      data-type: bool
+      default: false
+      options:
+        - value: true
+          label: 显示
+        - value: false
+          label: 不现实
+    police_info:
+      name: police_info
+      label: 公安备案信息
+      type: text
+      default: ""
+    police_url:
+      name: police_url
+      label: 公安备跳转网址
+      type: text
+      default: ""

@@ -4,11 +4,22 @@
     <span class="footer_item"> </span>
 
     <small class="footer_copyright">
-        <div>© 2020 - <span id="year"></span> Powered by {{ .user.Nickname }}</div>
+        <div>Copyright © 2020 - <span id="year"></span>
+            Powered By <a href="https://github.com/go-sonic/sonic">Sonic</a>
+        </div>
         <div>
             {{$statistics:=getStatisticsData}}
-            网站已经运行 <span id="days">0</span> ·
-            本站总访问量 <span id="busuanzi_value_site_pv">{{$statistics.VisitCount}}</span> 次
+            已经顽强运行 <span id="days">0</span> ·
+            总访问量 <span id="busuanzi_value_site_pv">{{$statistics.VisitCount}}</span> 次
+        </div>
+        <div class="beian">
+            {{ if .settings.show_icp }}
+            <a target="_blank" href="{{.settings.icp_url}}">{{.settings.icp_info}}</a>
+            {{ end }}
+            {{ if and .settings.show_icp .settings.show_police}}·{{ end }}
+            {{ if .settings.show_police }}
+            <a target="_blank" href="{{.settings.police_url}}">{{.settings.police_info}}</a>
+            {{ end }}
         </div>
         <div class="gotop">▲</div>
     </small>
