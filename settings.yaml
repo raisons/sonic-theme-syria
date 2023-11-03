@@ -5,6 +5,7 @@ basic:
       name: show_blog_domain
       label: 是否显示域名
       type: radio
+      data-type: bool
       default: false
       options:
         - value: true
