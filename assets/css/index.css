@@ -731,3 +731,10 @@ main {
   padding: 0;
   padding-left: 5px;
 }
+
+.beian {
+    margin-top: 5px;
+}
+.beian a {
+    color: #abb2bf;
+}
